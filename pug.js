@@ -4,42 +4,64 @@ function Pug(){
 	this.x=9 * box;
 	this.y=10 * box;
 	
-	this.newX=this.x;
-	this.newY=this.y;
+	this.speedX=0;
+	this.speedY=0;
+
+	this.d='';
 
 	//control snake
 	this.changeDirection=function(direction){
         switch(direction){
             case 'left':
-	    		this.x-=box;
-	           	left.play();
+            	//if(this.d!=="left"){
+            		this.speedX= -box;
+            		this.speedY=0;
+            		this.d="left";
+	           		left.play();
+            	//}
                 break;
 
             case 'up':
-	    		this.y-=box;
-	           	right.play();
+            	//if(this.d!=="up"){
+            		this.speedY= -box;
+            		this.speedX=0;
+            		this.d='up';
+	           		right.play();
+            	//}
                 break;
 
             case 'right':
-	    		this.x+=box;
-	           	up.play();
+            	//if(this.d!=='right'){
+            		this.speedX= box;
+            		this.speedY=0;
+            		this.d='right';
+	           		up.play();
+            	//}
 				break;
 
             case 'down':
-	    		this.y+=box;
-	           	down.play();
+            	//if(this.d!=='down'){
+            		this.speedY= box;
+            		this.speedX=0;
+            		this.d='down';
+	           		down.play();
+            	//}
             	break; 
         }
     }
 
     this.draw=function(){
-		ctx.fillRect(this.x,this.y,box,box);
+    	ctx.drawImage(pugImg,this.x,this.y);
+		//ctx.fillRect(this.x,this.y,box,box);
     }
 
     this.eat=function(food){
     	//if snake eats food
 		if(this.x==food.pie.x && this.y==food.pie.y){
 			score++;
+			clearInterval(game);
+			ms-=5;
+			game=setInterval(draw,ms);
 			eat.play();
 			food.pie = {
 				x:Math.floor(Math.random()*17+1)*box,
@@ -48,11 +70,9 @@ function Pug(){
 		}
     }
 
-    this.updateDirection=function(d){
-    	if(d==37) this.x -=box;
-		if(d==38) this.y -=box;
-		if(d==39) this.x +=box;
-		if(d==40) this.y +=box;
+    this.updateDirection=function(){
+    	this.x+=this.speedX;
+    	this.y+=this.speedY;
     }
 
 }

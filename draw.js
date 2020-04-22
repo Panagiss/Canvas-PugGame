@@ -7,12 +7,15 @@ const box = 32;
 //create score
 let score=0; 
 let bestScore;
+let ms=150;
 
 //load images
 const backroundImg = new Image();
 backroundImg.src = "img/ground.png";
+const pugImg=new Image();
+pugImg.src="img/pug.png"
 const foodImg = new Image();
-foodImg.src = "img/food.png";
+foodImg.src = "img/souvlaki2.png";
 
 //load audio files
 const dead= new Audio();
@@ -35,35 +38,23 @@ var pie = new Food();
 
 
 //control snake
-var d=0;
+
 document.addEventListener("keydown",function(event){
     switch(event.keyCode){
         case 37:
-        	if(d!=39){
-        		d=37;
-        		pug.changeDirection('left');
-        	}
+        	pug.changeDirection('left');
             break;
 
         case 38:
-        	if(d!=40){
-        		d=38;
-        		pug.changeDirection('up');
-        	}
-            break;
+        	pug.changeDirection('up');
+			break;
             
         case 39:
-        	if(d!=37){
-        		d=39;
-        		pug.changeDirection('right');
-        	}
-            break;
+        	pug.changeDirection('right');
+			break;
 
         case 40:
-        	if(d!=38){
-        		d=40;
-  				pug.changeDirection('down');        	
-  			}
+			pug.changeDirection('down');        	
             break;
     }
 });
@@ -98,11 +89,13 @@ if(cookie !== null && cookie !== ""){
 function draw(){
 	ctx.drawImage(backroundImg,0,0);
 
+
 	pug.draw();
 	pie.draw();
 	
+	
 	//which direction
-	pug.updateDirection(d);
+	pug.updateDirection();
 	//if snake eats pie
 	pug.eat(pie);
 	
@@ -124,9 +117,6 @@ function draw(){
 		
 	}
 
-	//pug.x=pug.newX;
-	//pug.y=pug.newY;
-
 
 	ctx.fillStyle="White";
 	ctx.font="45px Changa one";
@@ -140,4 +130,4 @@ function draw(){
 }
 
 //call draw function every 100 ms
-let game=setInterval(draw,150);
+let game=setInterval(draw,ms);
