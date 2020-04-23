@@ -2,7 +2,7 @@
 Simple Canvas Html5 Game using Javascript with Cookie storage support.
 
 # Gameplay
-A hungry pug tries to eat as many pies as it can. For every pie the pug eats , it moves quicker wanting more food. Eat as many pies as you can. Game is over if the pug hits the wall.
+A hungry pug tries to eat as many pies as it can. For every pie the pug eats , it moves quicker wanting more food. Eat as many pies as you can. Game is over when the pug hits the wall.
 
 # Buttons
 "Up"-Arrow: GO UP
