@@ -11,11 +11,11 @@ let ms=150;
 
 //load images
 const backroundImg = new Image();
-backroundImg.src = "img/ground.png";
+backroundImg.src = "img/ground2.png";
 const pugImg=new Image();
 pugImg.src="img/pug.png"
 const foodImg = new Image();
-foodImg.src = "img/souvlaki2.png";
+foodImg.src = "img/pie.png";
 
 //load audio files
 const dead= new Audio();
@@ -24,8 +24,8 @@ const up= new Audio();
 const down= new Audio();
 const left= new Audio();
 const right= new Audio();
-dead.src = "audio/dead.mp3";
-eat.src = "audio/eat.mp3";
+dead.src = "audio/howl.mp3";
+eat.src = "audio/eating.mp3";
 up.src = "audio/up.mp3";
 left.src = "audio/left.mp3";
 down.src = "audio/down.mp3";
@@ -120,7 +120,7 @@ function draw(){
 
 	ctx.fillStyle="White";
 	ctx.font="45px Changa one";
-	ctx.fillText(score,2*box,1.6*box);
+	ctx.fillText(score,2.6*box,1.6*box);
 	if(bestScore<score){
 		ctx.fillStyle="White";
 		ctx.font="45px Changa one";

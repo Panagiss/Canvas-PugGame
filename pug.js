@@ -60,7 +60,7 @@ function Pug(){
 		if(this.x==food.pie.x && this.y==food.pie.y){
 			score++;
 			clearInterval(game);
-			ms-=5;
+			ms-=3;
 			game=setInterval(draw,ms);
 			eat.play();
 			food.pie = {
