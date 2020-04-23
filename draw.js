@@ -7,7 +7,7 @@ const box = 32;
 //create score
 let score=0; 
 let bestScore;
-let ms=150;
+let mseconds=180;
 
 //load images
 const backroundImg = new Image();
@@ -117,17 +117,16 @@ function draw(){
 		
 	}
 
-
 	ctx.fillStyle="White";
 	ctx.font="45px Changa one";
 	ctx.fillText(score,2.6*box,1.6*box);
 	if(bestScore<score){
 		ctx.fillStyle="White";
-		ctx.font="45px Changa one";
-		ctx.fillText("New Best: "+score,10*box,1.6*box);
+		ctx.font="30px Changa one";
+		ctx.fillText("New Best !",14*box,1.6*box);
 	}
 
 }
 
 //call draw function every 100 ms
-let game=setInterval(draw,ms);
+let game=setInterval(draw,mseconds);

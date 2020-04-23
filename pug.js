@@ -60,8 +60,8 @@ function Pug(){
 		if(this.x==food.pie.x && this.y==food.pie.y){
 			score++;
 			clearInterval(game);
-			ms-=3;
-			game=setInterval(draw,ms);
+			mseconds-=5;
+			game=setInterval(draw,mseconds);
 			eat.play();
 			food.pie = {
 				x:Math.floor(Math.random()*17+1)*box,
